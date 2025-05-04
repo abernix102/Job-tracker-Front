@@ -1,8 +1,7 @@
-import React from 'react'
-import { Outlet, Navigate } from 'react-router-dom'
+import { Navigate } from "react-router-dom";
 
-export default function ProtectedRoute() {
-  return (
-    <div>ProtectedRoute</div>
-  )
+export default function ProtectedRoute({children}) {
+    const isAuthenticated = false;
+    if(!isAuthenticated) return <Navigate to="/login"/>
+  return children;
 }
