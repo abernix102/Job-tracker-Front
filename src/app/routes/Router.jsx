@@ -1,13 +1,13 @@
 import { Routes, Route } from "react-router-dom";
-import AuthLayout from "../components/layout/AuthLayout";
-import AppLayout from "../components/layout/AppLayout";
-import ProtectedRoute from "../hooks/ProtectedRoute";
-import PublicRoute from "../hooks/PublicRoute";
+import AuthLayout from "../../widgets/layout/AuthLayout";
+import AppLayout from "../../widgets/layout/AppLayout";
+import ProtectedRoute from "../../shared/hooks/ProtectedRoute";
+import PublicRoute from "../../shared/hooks/PublicRoute";
 
 import Login from "../../features/auth/pages/Login";
 import Register from "../../features/auth/pages/Register";
-import Dashboard from "../../features/dashboard/pages/Dashboard";
-import TaskList from "../../features/tasks/pages/TaskList";
+import DashboardPage from "../../pages/DashboardPage/DashboadPage";
+// import TaskList from "../../features/tasks/pages/TaskList";
 
 export default function Router() {
   return (
@@ -23,8 +23,8 @@ export default function Router() {
       {/* Rutas privadas */}
       <Route element={<ProtectedRoute />}>
         <Route element={<AppLayout />}>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/tasks" element={<TaskList />} />
+          <Route path="/" element={<DashboardPage />} />
+          {/* <Route path="/tasks" element={<TaskList />} /> */}
         </Route>
       </Route>
     </Routes>
